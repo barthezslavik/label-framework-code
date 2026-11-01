@@ -1,0 +1,22 @@
+   S_1(k) at k = 0.01, 0.02, 0.04: 0.7675, 0.6521, 0.5367; size change at k = 0.1: 2.1e-14
+PASS RE1 half-line entanglement of the massive chain: S_1 = -0.1665 ln k + const for small k (1/6 = 0.1667: c = 1, one entangling point); converged in the chain length
+PASS RE2 entanglement spectrum of the half-line (k = 0.3): lowest levels [ 3.001  9.002 15.004 21.006 27.007], spacings [6.002 6.002 6.002 6.002] equal to 1.1e-05: an equidistant spectrum, as expected for the lattice-boost form; the identification with the boost (Bisognano-Wichmann) is known and not tested here
+   S_1(8) = 1.7e-04, S_1(400) = 6.8e-11, decay S_1 ~ k^-3.83; pieces: k < 0.01 4.25e-05, main 0.14767, tail 6.0e-06
+PASS RE3 plane (Rindler horizon) in the radial-lattice regulator: eta_plane = (1/2pi) int k S_1(k) dk = 0.02351 / a^2 per field (integrand decays as k^-2.83, tail beyond k = 400 is 4.1e-05 of the total)
+   sphere n = 10: S =    32.506, S/(4 pi R^2) = 0.02346
+   sphere n = 15: S =    70.902, S/(4 pi R^2) = 0.02348
+   sphere n = 20: S =   124.065, S/(4 pi R^2) = 0.02349
+   sphere n = 25: S =   191.992, S/(4 pi R^2) = 0.02350
+   sphere n = 30: S =   274.680, S/(4 pi R^2) = 0.02350
+   sphere n = 35: S =   372.123, S/(4 pi R^2) = 0.02350
+   sphere n = 40: S =   484.317, S/(4 pi R^2) = 0.02350
+   sphere fits (lattice 100/150 sites, R ranges, with/without ln R): eta = 0.023492 ... 0.023504 (spread 5.2e-04); ln R coefficient 0.016 ... 0.156 (not determined); plane 0.023510, coarse grid 0.023512
+PASS RE4 sphere in the same regulator: eta_sphere = 0.02350 (spread of fits 5.2e-04), plane 0.02351 (grid change 7.3e-05): difference 4.8e-04, within 0.9 of the extrapolation spread. In one regulator the area coefficient of the plane equals that of the sphere at the 1e-3 level; the ln R term is not determined by these fits
+   cubic lattice: eta = 0.02424 (24^2 points), 0.02425 (40^2 points)
+PASS RE5 with a transverse lattice of the same step (cubic lattice) the plane gives eta = 0.02425, not 0.02351 (3.2 %, grid change 6.6e-04): the coefficient depends on the regulator (known: area coefficients are not universal), while within one regulator it does not depend on the shape (RE4)
+PASS RE7 the half-line entropy at k = 0.2 for c_s = 1, 0.1, 0.001: 0.2726267002, 0.2726267002, 0.2726267002: independent of the stiffness, so a medium H = pi^2/2 + c_s^2 phi K phi/2 contributes the same eta per mode; other quadratic Hamiltonians are not covered; dust (c_s = 0) has no ground state of the mode and no defined contribution (sharpens doc 130 item (d))
+   cylinder R = 10.5: per area 0.023416, flat control 0.023482 (same k grid), relative difference -2.82e-03
+   cylinder R = 20.5: per area 0.023455, flat control 0.023469 (same k grid), relative difference -5.74e-04
+PASS RE8 cylinder (mean curvature 1/2R, sphere 1/R, plane 0) against its flat control on one Gauss-Legendre grid in ln k: relative difference -2.82e-03 at R = 10.5 and -5.74e-04 at R = 20.5, falling by a factor 4.9; the convergence study (cyl_convergence_eta.py: grid 30 -> 60 points changes R = 20.5 by 1.5e-6, lattice 150 -> 250 sites by 1e-5; at R = 40.5 the difference is zero within 1.5e-5) shows that curvature enters only subleading terms on the shapes checked
+   one field: eta = 1/(4 l_P^2) needs a = 0.307 l_P (doc 130: 0.306); N fields: a = 0.307 sqrt(N) l_P
+PASS RE6 eta = N eta_hat/a^2 = 1/(4 G hbar) gives G hbar = a^2/(4 N eta_hat), eta_hat = 0.0235 (radial lattice) or 0.0243 (cubic): G is traded for the step a and the field count N, both outside the label axioms; with a = the step of axiom D the value is excluded by BBN (doc 112). G is not fixed by eta alone

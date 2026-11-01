@@ -1,0 +1,13 @@
+# a0(z) points from the literature, typed by hand with provenance (units 1e-10 m/s^2). Used by inv_a0z_clock_test.py.
+# kind: point | upper (upper limit) | derived (z or value reconstructed, use with care). sys = systematic error if stated, else 0.
+# method groups points that share a pipeline (a per-method factor can be fitted).
+# Rows still to be filled when data are accessible (left commented out):
+#   MUSE-DARK III per-bin values (Fig. 3 of arXiv 2604.22613; only extremes are given in the text)
+#   Genzel+ 2017 / Nestor Shachar+ 2023 high-z rotation curves (z 0.6-2.5), KMOS3D (Uebler+ 2017)
+source,method,kind,z,a0,stat,sys,note
+SPARC RAR (McGaugh+ 2016; Lelli+ 2017),local-RAR,point,0.0,1.20,0.02,0.24,local disks
+MIGHTEE-HI (Varasteanu+ 2025),local-HI,point,0.04,1.69,0.13,0.0,z<0.08; differs from SPARC
+MUSE-DARK III whole sample (Ciocan+ 2026),MUSE,point,0.868,2.38,0.10,0.0,z_eff from the published line a0=1.00+1.59z
+MUSE-DARK III lowest bin,MUSE,derived,0.62,1.99,0.15,0.0,bin z reconstructed from the line (circular); error assumed
+MUSE-DARK III highest bin,MUSE,derived,1.08,2.71,0.20,0.0,bin z reconstructed from the line (circular); error assumed
+Milgrom 2017 on Genzel+ 2017,highz-RC,upper,2.0,4.8,0.0,0.0,'~4 a0 all but excluded' (six galaxies)
