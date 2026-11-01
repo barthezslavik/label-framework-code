@@ -66,7 +66,18 @@ python -I figures/fig_paper3_btfr.py SPARC_DIR OUT.pdf
 
 ## Papers
 
-DOIs are added when the records are published.
+| Text | DOI |
+|---|---|
+| Volume-preserving relabelling and a label-count classification of cosmic media (version 3) | 10.5281/zenodo.23871774 |
+| Rotation curves as the shape of a label space (version 3) | 10.5281/zenodo.23871775 |
+| The cosmological constant as a label (version 2) | 10.5281/zenodo.23871776 |
+| What the label framework predicts: a catalogue of tests across physics | 10.5281/zenodo.23871778 |
+| The volume axis, horizon equilibrium and spin as a relation | 10.5281/zenodo.23871780 |
+| Where a number stops being a label | 10.5281/zenodo.23871784 |
+| A dimensionless theorem base in geometric algebra | 10.5281/zenodo.23871786 |
+| The language of labels in physics: an overview of a series | 10.5281/zenodo.23871788 |
+
+This code: Zenodo, doi:10.5281/zenodo.23871790 (release v1.0 of this repository).
 
 ## Licence
 
