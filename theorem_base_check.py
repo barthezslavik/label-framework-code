@@ -105,7 +105,7 @@ BASE = {
     'K23 compact labels do not replace D or self-interaction': {'ga_compact_labels_check.py': ['CL1', 'CL2', 'CL3', 'CL4', 'CL4b', 'CL5', 'CL6']},
     'K24 signature (1,3) from the label medium': {'ga_signature_from_labels_check.py': ['SG1', 'SG2', 'SG3', 'SG4', 'SG4b', 'SG4c', 'SG5', 'SG6']},
     'K25 vacuum, orientation, quantum level': {'ga_postulates_reduction_check.py': ['VC1', 'VC1b', 'VC2', 'VC3', 'OR1', 'OR2', 'OR3', 'OR4', 'QS1', 'QS2']},
-    'K26 Rindler horizon has the sphere coefficient': {'ga_rindler_eta_check.py': ['RE1', 'RE2', 'RE3', 'RE4', 'RE5', 'RE6', 'RE7', 'RE8']},
+    'K26 plane and sphere share the area coefficient within the fits': {'ga_rindler_eta_check.py': ['RE1', 'RE2', 'RE3', 'RE4', 'RE5', 'RE6', 'RE7', 'RE8']},
     'K27 internal group of a rotor field is U(2)': {'ga_ordinary_matter_check.py': ['OM1', 'OM2', 'OM3', 'OM4', 'OM5', 'OM6', 'OM7', 'OM8a', 'OM8', 'OM9']},
     # L. predictions across physics (docs 116-124)
     'L1 S8 line of the coupling': {'ga_s8_wbar_forecast_check.py': ['SW1', 'SW2', 'SW3', 'SW4', 'SW6', 'SW7', 'SW8']},
