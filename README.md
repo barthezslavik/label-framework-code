@@ -1,19 +1,19 @@
 # Code and checks for the label-framework series
 
-The scripts in this repository compute or check the statements of eight texts:
+The scripts in this repository compute or check the statements of seven texts:
 
 - Volume-preserving relabelling and a label-count classification of cosmic media (paper1, version 3)
 - Rotation curves as the shape of a label space (paper3, version 3)
 - The cosmological constant as a label (paper5, version 2)
-- What the label framework predicts: a catalogue of tests across physics (paper7, version 2)
+- What the label framework predicts: a catalogue of tests across physics (paper7)
 - The volume axis, horizon equilibrium and spin as a relation (paper8)
-- Where a number stops being a label (paper9)
-- A dimensionless theorem base in geometric algebra (theorem base)
+- A dimensionless theorem base in geometric algebra for label media, field equations, de Sitter space and galaxy regularities (theorem base)
 - The language of labels in physics: an overview of a series
 
-Each paper names, next to a statement, the script and the label of the check (for example `ga_rindler_eta_check` RE3).
-The repository holds only those scripts, the scripts they call, their stored outputs and one small table of our own;
-the papers themselves are on Zenodo (DOIs below).
+The papers state results and proofs without naming scripts. The map from statements to scripts and the labels of their checks
+is in `checks/`: `theorem-base.md` (every theorem of the theorem base), `paper8.md` and `overview.md`. Every check prints a labelled
+`PASS`/`FAIL` line (for example `ga_rindler_eta_check` RE3). The repository holds only the scripts the texts rest on, the scripts they call,
+their stored outputs and one small table of our own; the papers themselves are on Zenodo (DOIs below).
 
 ## Layout
 
@@ -23,6 +23,7 @@ the papers themselves are on Zenodo (DOIs below).
 | `de_*.py`, `btfr_*.py`, `rar_*.py`, `mond_*.py`, `csdr_*.py` | checks against published data (the data directory is a command-line argument) |
 | `ga_core.py` | the geometric-algebra helpers used by the checks |
 | `run_all.py` | runs every data-free check |
+| `checks/*.md` | which script and which labels check each statement |
 | `theorem_base_check.py` | runs the 100 theorems of the theorem base and the falsification pass and asserts that every listed label prints `PASS` |
 | `figures/fig_paper*.py` | draw the figures of the papers (byte for byte reproducible) |
 | `*.out`, `*.txt`, `results/` | stored outputs read by some checks (300 realisations of the fluctuating Λ, entanglement sums) |
@@ -73,8 +74,7 @@ python -I figures/fig_paper3_btfr.py SPARC_DIR OUT.pdf
 | The cosmological constant as a label (version 2) | 10.5281/zenodo.23871776 |
 | What the label framework predicts: a catalogue of tests across physics | 10.5281/zenodo.23871778 |
 | The volume axis, horizon equilibrium and spin as a relation | 10.5281/zenodo.23871780 |
-| Where a number stops being a label | 10.5281/zenodo.23871784 |
-| A dimensionless theorem base in geometric algebra | 10.5281/zenodo.23871786 |
+| A dimensionless theorem base in geometric algebra for label media, field equations, de Sitter space and galaxy regularities | 10.5281/zenodo.23871786 |
 | The language of labels in physics: an overview of a series | 10.5281/zenodo.23871788 |
 
 This code: Zenodo, doi:10.5281/zenodo.23871790 (release v1.0 of this repository).
