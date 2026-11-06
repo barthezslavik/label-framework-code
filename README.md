@@ -11,15 +11,15 @@ geometric algebra. This repository holds the Python scripts (numpy, scipy, sympy
 
 The scripts in this repository compute or check the statements of nine texts, all open access on Zenodo:
 
-- [Volume-preserving relabelling and a label-count classification of cosmic media](https://doi.org/10.5281/zenodo.23871774) (paper1, version 3): which medium (dust, radiation, strings, walls, vacuum) each condition on the action gives
+- [Volume-preserving relabelling and a label-count classification of cosmic media](https://doi.org/10.5281/zenodo.24021766) (paper1, version 4): which medium (dust, radiation, strings, walls, vacuum) each condition on the action gives
 - [Rotation curves as the shape of a label space](https://doi.org/10.5281/zenodo.23871775) (paper3, version 3): galaxy rotation curves and the baryonic Tully–Fisher slope
-- [The cosmological constant as a label](https://doi.org/10.5281/zenodo.23871776) (paper5, version 2): Λ as a constant of integration; fit to DESI DR2
+- [The cosmological constant as a label](https://doi.org/10.5281/zenodo.24021767) (paper5, version 3): Λ as a constant of integration; fit to DESI DR2
 - [What the label framework predicts: a catalogue of tests across physics](https://doi.org/10.5281/zenodo.23871778) (paper7): 62 testable items with status and data
 - [The volume axis, horizon equilibrium and spin as a relation](https://doi.org/10.5281/zenodo.23871780) (paper8): signature (1,3), the trace-free Einstein equation, half-integer spin
 - [A dimensionless theorem base in geometric algebra](https://doi.org/10.5281/zenodo.23871786) (theorem base): 100 theorems with premises, proof ideas and checks
-- [The vacuum in the label framework](https://doi.org/10.5281/zenodo.24021760) (paper10): the four-label vacuum as q-theory; its rigidity
-- [Black holes in the label framework](https://doi.org/10.5281/zenodo.24021764) (paper11): collapse of label dust, shell crossing, entropy step, remnants
-- [The language of labels in physics: an overview of a series](https://doi.org/10.5281/zenodo.23871788) (overview): reading order, premises of the main results, the classes of numbers
+- [The vacuum in the label framework](https://doi.org/10.5281/zenodo.24023150) (paper10, version 2): the four-label vacuum as q-theory; its rigidity
+- [Black holes in the label framework](https://doi.org/10.5281/zenodo.24023151) (paper11, version 2): collapse of label dust, shell crossing, entropy step, remnants
+- [The language of labels in physics: an overview of a series](https://doi.org/10.5281/zenodo.24021765) (overview, version 2): reading order, premises of the main results, the classes of numbers
 
 The papers state results and proofs without naming scripts. The map from statements to scripts and the labels of their checks
 is in `checks/`: `theorem-base.md` (every theorem of the theorem base), `paper8.md`, `paper10.md`, `paper11.md` and `overview.md`. Every check prints a labelled
@@ -80,15 +80,15 @@ python -I figures/fig_paper3_btfr.py SPARC_DIR OUT.pdf
 
 | Text | DOI |
 |---|---|
-| Volume-preserving relabelling and a label-count classification of cosmic media (paper1, version 3) | [10.5281/zenodo.23871774](https://doi.org/10.5281/zenodo.23871774) |
+| Volume-preserving relabelling and a label-count classification of cosmic media (paper1, version 4) | [10.5281/zenodo.24021766](https://doi.org/10.5281/zenodo.24021766) |
 | Rotation curves as the shape of a label space (paper3, version 3) | [10.5281/zenodo.23871775](https://doi.org/10.5281/zenodo.23871775) |
-| The cosmological constant as a label (paper5, version 2) | [10.5281/zenodo.23871776](https://doi.org/10.5281/zenodo.23871776) |
+| The cosmological constant as a label (paper5, version 3) | [10.5281/zenodo.24021767](https://doi.org/10.5281/zenodo.24021767) |
 | What the label framework predicts: a catalogue of tests across physics (paper7) | [10.5281/zenodo.23871778](https://doi.org/10.5281/zenodo.23871778) |
 | The volume axis, horizon equilibrium and spin as a relation (paper8) | [10.5281/zenodo.23871780](https://doi.org/10.5281/zenodo.23871780) |
 | A dimensionless theorem base in geometric algebra (theorem base) | [10.5281/zenodo.23871786](https://doi.org/10.5281/zenodo.23871786) |
-| The vacuum in the label framework (paper10) | [10.5281/zenodo.24021760](https://doi.org/10.5281/zenodo.24021760) |
-| Black holes in the label framework (paper11) | [10.5281/zenodo.24021764](https://doi.org/10.5281/zenodo.24021764) |
-| The language of labels in physics: an overview of a series (overview) | [10.5281/zenodo.23871788](https://doi.org/10.5281/zenodo.23871788) |
+| The vacuum in the label framework (paper10, version 2) | [10.5281/zenodo.24023150](https://doi.org/10.5281/zenodo.24023150) |
+| Black holes in the label framework (paper11, version 2) | [10.5281/zenodo.24023151](https://doi.org/10.5281/zenodo.24023151) |
+| The language of labels in physics: an overview of a series (overview, version 2) | [10.5281/zenodo.24021765](https://doi.org/10.5281/zenodo.24021765) |
 
 This code: [10.5281/zenodo.24021768](https://doi.org/10.5281/zenodo.24021768) (release v1.1); all versions: [10.5281/zenodo.23871789](https://doi.org/10.5281/zenodo.23871789); v1.0: [10.5281/zenodo.23871790](https://doi.org/10.5281/zenodo.23871790).
 
