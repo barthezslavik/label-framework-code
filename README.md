@@ -1,6 +1,12 @@
 # Code and checks for the label-framework series
 
-The scripts in this repository compute or check the statements of seven texts:
+The label framework describes matter as a field of comoving scalar labels on spacetime whose relabellings preserve the label volume.
+Under premises stated in each paper, the series obtains the media of cosmology (dust, radiation, strings, walls, the vacuum) from the
+number of labels and a condition on the action, treats the cosmological constant as a constant of integration and compares it with DESI DR2,
+describes galaxy rotation curves, the vacuum as q-theory and black holes built from label dust, and collects the results as theorems in
+geometric algebra. This repository holds the Python scripts (numpy, scipy, sympy) that compute or check those results.
+
+The scripts in this repository compute or check the statements of nine texts:
 
 - Volume-preserving relabelling and a label-count classification of cosmic media (paper1, version 3)
 - Rotation curves as the shape of a label space (paper3, version 3)
@@ -8,10 +14,12 @@ The scripts in this repository compute or check the statements of seven texts:
 - What the label framework predicts: a catalogue of tests across physics (paper7)
 - The volume axis, horizon equilibrium and spin as a relation (paper8)
 - A dimensionless theorem base in geometric algebra for label media, field equations, de Sitter space and galaxy regularities (theorem base)
+- The vacuum in the label framework (paper10)
+- Black holes in the label framework (paper11)
 - The language of labels in physics: an overview of a series
 
 The papers state results and proofs without naming scripts. The map from statements to scripts and the labels of their checks
-is in `checks/`: `theorem-base.md` (every theorem of the theorem base), `paper8.md` and `overview.md`. Every check prints a labelled
+is in `checks/`: `theorem-base.md` (every theorem of the theorem base), `paper8.md`, `paper10.md`, `paper11.md` and `overview.md`. Every check prints a labelled
 `PASS`/`FAIL` line (for example `ga_rindler_eta_check` RE3). The repository holds only the scripts the texts rest on, the scripts they call,
 their stored outputs and one small table of our own; the papers themselves are on Zenodo (DOIs below).
 
@@ -75,9 +83,11 @@ python -I figures/fig_paper3_btfr.py SPARC_DIR OUT.pdf
 | What the label framework predicts: a catalogue of tests across physics | 10.5281/zenodo.23871778 |
 | The volume axis, horizon equilibrium and spin as a relation | 10.5281/zenodo.23871780 |
 | A dimensionless theorem base in geometric algebra for label media, field equations, de Sitter space and galaxy regularities | 10.5281/zenodo.23871786 |
+| The vacuum in the label framework | 10.5281/zenodo.24021760 |
+| Black holes in the label framework | 10.5281/zenodo.24021764 |
 | The language of labels in physics: an overview of a series | 10.5281/zenodo.23871788 |
 
-This code: Zenodo, doi:10.5281/zenodo.23871790 (release v1.0 of this repository).
+This code: Zenodo, doi:10.5281/zenodo.24021768 (release v1.1 of this repository; v1.0: doi:10.5281/zenodo.23871790).
 
 ## Licence
 
