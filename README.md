@@ -16,7 +16,7 @@ The scripts in this repository compute or check the statements of nine texts, al
 - [The cosmological constant as a label](https://doi.org/10.5281/zenodo.24021767) (paper5, version 3): Λ as a constant of integration; fit to DESI DR2
 - [What the label framework predicts: a catalogue of tests across physics](https://doi.org/10.5281/zenodo.23871778) (paper7): 62 testable items with status and data
 - [The volume axis, horizon equilibrium and spin as a relation](https://doi.org/10.5281/zenodo.23871780) (paper8): signature (1,3), the trace-free Einstein equation, half-integer spin
-- [A dimensionless theorem base in geometric algebra](https://doi.org/10.5281/zenodo.23871786) (theorem base): 100 theorems with premises, proof ideas and checks
+- [A dimensionless theorem base in geometric algebra](https://doi.org/10.5281/zenodo.24023762) (theorem base, version 2): 100 theorems with premises, proof ideas and checks
 - [The vacuum in the label framework](https://doi.org/10.5281/zenodo.24023150) (paper10, version 2): the four-label vacuum as q-theory; its rigidity
 - [Black holes in the label framework](https://doi.org/10.5281/zenodo.24023151) (paper11, version 2): collapse of label dust, shell crossing, entropy step, remnants
 - [The language of labels in physics: an overview of a series](https://doi.org/10.5281/zenodo.24021765) (overview, version 2): reading order, premises of the main results, the classes of numbers
@@ -85,7 +85,7 @@ python -I figures/fig_paper3_btfr.py SPARC_DIR OUT.pdf
 | The cosmological constant as a label (paper5, version 3) | [10.5281/zenodo.24021767](https://doi.org/10.5281/zenodo.24021767) |
 | What the label framework predicts: a catalogue of tests across physics (paper7) | [10.5281/zenodo.23871778](https://doi.org/10.5281/zenodo.23871778) |
 | The volume axis, horizon equilibrium and spin as a relation (paper8) | [10.5281/zenodo.23871780](https://doi.org/10.5281/zenodo.23871780) |
-| A dimensionless theorem base in geometric algebra (theorem base) | [10.5281/zenodo.23871786](https://doi.org/10.5281/zenodo.23871786) |
+| A dimensionless theorem base in geometric algebra (theorem base, version 2) | [10.5281/zenodo.24023762](https://doi.org/10.5281/zenodo.24023762) |
 | The vacuum in the label framework (paper10, version 2) | [10.5281/zenodo.24023150](https://doi.org/10.5281/zenodo.24023150) |
 | Black holes in the label framework (paper11, version 2) | [10.5281/zenodo.24023151](https://doi.org/10.5281/zenodo.24023151) |
 | The language of labels in physics: an overview of a series (overview, version 2) | [10.5281/zenodo.24021765](https://doi.org/10.5281/zenodo.24021765) |
