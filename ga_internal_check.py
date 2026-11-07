@@ -9,8 +9,9 @@
 # IN2 the surviving abelian generator, normalised to Y(lepton doublet) = -1, gives the hypercharges 0, -2, -1, 4/3, -2/3, 1/3 of
 #     nu_R, e_R, L, u_R, d_R, Q;
 # IN3 with these hypercharges all gauge and gravitational anomalies of one generation vanish; on the two-dimensional abelian
-#     algebra the gravitational and SU(3)^2 U(1) anomalies vanish identically, while SU(2)^2 U(1) and U(1)^3 each select the same
-#     line as S; the other direction (baryon number of the right action) is anomalous;
+#     algebra the gravitational and SU(3)^2 U(1) anomalies vanish identically; SU(2)^2 U(1) alone selects the line of S; U(1)^3 is
+#     proportional to alpha^2 (alpha + N beta) and vanishes on that line and on alpha = 0, the vector-like baryon number of the right
+#     action, which violates only SU(2)^2 U(1);
 # IN4 for A_F = C + H + M_N(C), N = 1..7, S gives Y(Q) = 1/N and every anomaly still vanishes: S does not fix the colour number;
 # IN5 the global SU(2) anomaly (Witten 1982) needs an even number of Weyl doublets per generation; the representation has 1 + N, so
 #     N must be odd; S does not enter.
@@ -130,15 +131,20 @@ lin = np.array([[np.trace(gam @ G).real, np.trace(gam @ TN[0] @ TN[0] @ G).real]
 auto = np.abs(lin).max() < 1e-12                                       # grav and SU(3)^2 U(1) vanish on the whole abelian plane
 s2 = [np.trace(gam @ T2[0] @ T2[0] @ G).real for G in (A, B)]
 line_s2 = -s2[0] / s2[1]                                               # beta/alpha where SU(2)^2 U(1) vanishes
-cub = [np.trace(gam @ np.linalg.matrix_power(A + t * B, 3)).real for t in (-1.0, 0.0, 1.0)]
-# Tr gam (A + tB)^3 is linear in t here (B^2 and B^3 terms cancel between chiralities); root:
-assert abs(cub[0] - 2 * cub[1] + cub[2]) < 1e-9
-line_c = -cub[1] / ((cub[2] - cub[0]) / 2)
+# U(1)^3 as a homogeneous cubic in (alpha, beta): c(alpha, beta) = Tr gam (alpha A + beta B)^3; fit the four coefficients exactly
+pts = [(1.0, 0.0), (0.0, 1.0), (1.0, 1.0), (1.0, -1.0), (2.0, 1.0)]
+vals = [np.trace(gam @ np.linalg.matrix_power(al * A + be * B, 3)).real for al, be in pts]
+M3 = np.array([[al**3, al**2 * be, al * be**2, be**3] for al, be in pts])
+coef = np.linalg.lstsq(M3, np.array(vals), rcond=None)[0]               # c = c30 a^3 + c21 a^2 b + c12 a b^2 + c03 b^3
+assert np.allclose(M3 @ coef, vals)
+c30, c21, c12, c03 = coef
+cub_ok = abs(c12) < 1e-9 and abs(c03) < 1e-9 and abs(c21 / c30 + 1 / y) < 1e-9   # c = c30 a^2 (a - b/y): roots a = 0 (double), b = y a
 anB = anomalies(B, T2, TN, gam)
 ok(f"IN3 all anomalies of one generation vanish with S (|max| = {max(abs(x) for x in an):.1e}); on the abelian plane the "
-   f"gravitational and SU(3)^2 U(1) anomalies vanish identically, while SU(2)^2 U(1) and U(1)^3 each select beta/alpha = "
-   f"{line_s2:.4f}, {line_c:.4f} = S; the B direction is anomalous (SU(2)^2: {anB[2]:.3f})",
-   max(abs(x) for x in an) < 1e-10 and auto and abs(line_s2 - y) < 1e-12 and abs(line_c - y) < 1e-12 and abs(anB[2]) > 0.1)
+   f"gravitational and SU(3)^2 U(1) anomalies vanish identically; SU(2)^2 U(1) selects beta/alpha = {line_s2:.4f} = S alone; "
+   f"U(1)^3 = {c30:.0f} alpha^2 (alpha + {c21/c30:.0f} beta) vanishes on the S line and on alpha = 0 (baryon number of the right action, "
+   f"vector-like); that direction violates only SU(2)^2 U(1) ({anB[2]:.3f})",
+   max(abs(x) for x in an) < 1e-10 and auto and abs(line_s2 - y) < 1e-12 and cub_ok and abs(anB[2]) > 0.1 and abs(anB[1]) < 1e-12)
 
 # ---------- IN4 S does not fix the colour number ----------
 rows = []

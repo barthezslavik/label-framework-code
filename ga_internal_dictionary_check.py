@@ -8,7 +8,7 @@
 # ID3 on the abelian plane the S line coincides, for every N = 1..7, with the line where the Fujikawa Jacobian of the fermion measure
 #     vanishes in an SU(2) instanton background (Tr gamma T^2 G = 0); in a gravitational background that Jacobian vanishes
 #     identically: S equals one anomaly-free condition of the measure, not the vanishing of all Jacobians;
-# ID4 Lambda and theta are conjugate to exact top forms: det dX = d_mu(X^1 C^mu_1) (four labels; with an action F(n), F'' != 0 and
+# ID4 the label count and the instanton number are integrals of exact top forms: det dX = d_mu(X^1 C^mu_1) (four labels; with an action F(n), F'' != 0 and
 #     non-degenerate gradients, F'(n) is a constant of integration, paper10) and (1/4) eps Tr F F = d_mu K^mu with the Chern-Simons
 #     current (SU(2)), checked symbolically on polynomial fields; the theta term is linear in the instanton density, the analogue of
 #     F = bn, so theta stays a constant of the action as in the series.
@@ -105,7 +105,7 @@ K = [sp.expand(sum(eps(p) * (Am[p[1]] * sp.diff(Am[p[3]], x[p[2]]) + sp.Rational
                    for p in perms if p[0] == mu)) for mu in range(4)]
 dK = sp.expand(sum(sp.diff(K[mu], x[mu]) for mu in range(4)))
 ex2 = sp.simplify(FF - dK) == 0 and FF != 0
-ok("ID4 det dX = d_mu(X^1 C^mu_1) for four polynomial labels (Lambda conjugate) and (1/4) eps Tr F F = d_mu K^mu (Chern-Simons) for a "
-   "polynomial SU(2) potential (theta conjugate): both top forms are exact", ex1 and ex2)
+ok("ID4 det dX = d_mu(X^1 C^mu_1) for four polynomial labels (label count) and (1/4) eps Tr F F = d_mu K^mu (Chern-Simons) for a "
+   "polynomial SU(2) potential (instanton number): both top forms are exact", ex1 and ex2)
 
 print("ALL PASS")
