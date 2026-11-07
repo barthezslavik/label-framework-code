@@ -1,4 +1,4 @@
-# 147: step 4 of paper13. Dictionary between the outer relabelling symmetry (SDiff) and the inner condition "S" (det pi(u) = 1 on H_F).
+# 147: step 4 of paper12 (internal quantum numbers). Dictionary between the outer relabelling symmetry (SDiff) and the inner condition "S" (det pi(u) = 1 on H_F).
 # Premises I1-I3 as in ga_internal_check.py (algebra C + H + M_N(C), its representation on one generation, chirality).
 # ID1 every inner relabelling u a u* of the finite algebra preserves its trace, the noncommutative volume, with any positive weights on
 #     the summands; this holds for all 13 generators, including the direction that S removes: volume preservation is automatic inside,

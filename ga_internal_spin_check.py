@@ -1,4 +1,4 @@
-# 147: step 5 of paper13. Spin: external rotation, internal sign.
+# 147: step 5 of paper12 (internal quantum numbers). Spin: external rotation, internal sign.
 # Premises: the lock J = I of spatial and label rotations for a hedgehog (paper8, computed there); labels valued in SU(3) with the
 # Wess-Zumino term of level N_c ('t Hooft matching with N_c colours); the collective-coordinate constraint of that term, right
 # hypercharge Y_R = N_c B / 3 (Witten 1983; Guadagnini 1984; known, not recomputed); representation I2 of ga_internal_check.py.

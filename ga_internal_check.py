@@ -1,4 +1,4 @@
-# 146/147: step 2 of paper13. The internal sector as relabellings of a finite internal space with the unimodularity condition ("S").
+# 146/147: step 2 of paper12 (internal quantum numbers). The internal sector as relabellings of a finite internal space with the unimodularity condition ("S").
 # Chosen (premises): the algebra A_F = C + H + M_N(C) (N = 3 for the Standard Model), its representation on one generation of
 # particle states (left action: lambda on nu_R, u_R; conj(lambda) on e_R, d_R; the quaternion q on left doublets; right action:
 # conj(lambda) on leptons, conj(m) on the colour index of quarks; antiparticles carry the conjugate action), the chirality, the number of

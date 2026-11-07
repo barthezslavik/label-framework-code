@@ -1,4 +1,4 @@
-# 147: step 6 of paper13. Label budget of the internal sector: what S removes and what stays a label.
+# 147: step 6 of paper12 (internal quantum numbers). Label budget of the internal sector: what S removes and what stays a label.
 # Premises: I1-I3 of ga_internal_check.py; one generation for IB1, three for IB2.
 # IB1 abelian charges of one generation (Q, u, d, L, e, n): with no condition five ratios are free; the anomaly conditions (SU(3)^2 U(1),
 #     SU(2)^2 U(1), gravitational, U(1)^3) leave three planes through the origin, i.e. three one-parameter families of ratios; the SM
