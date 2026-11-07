@@ -17,7 +17,7 @@ Quantum Numbers* (in preparation); all print `PASS`.
   information; non-linear evolution; for product states a change of hbar
 - `ga_dens_signal_check` (DS1–DS4): marginal terms allow signalling, linear in c; no-signalling selects Fisher–Rao; estimate
   |c| < 7e-16 from the fine-structure constant
-- `ga_dens_series_check` (DL1–DL3, ST1–ST4): the label medium as the marginal level; unitarity as the isometry of the
+- `ga_dens_series_check` (DX1–DX3, ST1–ST4): the label medium as the marginal level; unitarity as the isometry of the
   Sasaki–Fisher–Rao metric; hbar between Wasserstein and Fisher–Rao; statistics invisible to densities, exchange phase (-1)^l
 - `ga_internal_check` (IN1–IN7): relabellings of the finite algebra C + H + M_N(C) span 13 dimensions, unimodularity leaves the 12 of
   the Standard Model; hypercharges; the SU(2)^2 U(1) anomaly alone selects the unimodular line; unimodularity leaves the colour number

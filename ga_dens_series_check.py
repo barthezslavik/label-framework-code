@@ -1,11 +1,11 @@
 # 149: QM part II, step 5 (link with the series) and step 6 (statistics). Two particles on a line, hbar = m = 1.
-# DL1 the label medium of the series in space sees only the one-body density n(x) = rho_1(x) + rho_2(x): a product density and a
+# DX1 the label medium of the series in space sees only the one-body density n(x) = rho_1(x) + rho_2(x): a product density and a
 #     correlated one with the same marginals give the same n and the same medium Fisher term, but different configuration-space
 #     Fisher information (the gap of DD3); the medium is the marginal level of the configuration-space picture (QM8 of paper12);
-# DL2 Madelung metric: for psi = sqrt(rho) e^{iS}, ||delta psi||^2 = (1/4) FR(delta rho) + int rho (delta S)^2 (Sasaki-Fisher-Rao,
+# DX2 Madelung metric: for psi = sqrt(rho) e^{iS}, ||delta psi||^2 = (1/4) FR(delta rho) + int rho (delta S)^2 (Sasaki-Fisher-Rao,
 #     Khesin-Misiolek-Modin); linear evolution keeps the distance of two nearby states (unitarity = isometry), the evolution with
 #     marginal terms (c = 0.3) does not;
-# DL3 hbar as the coefficient between the two geometries: (1/2) int rho |grad S|^2 + (hbar^2/8) I(rho) = (hbar^2/2) ||grad psi||^2 with
+# DX3 hbar as the coefficient between the two geometries: (1/2) int rho |grad S|^2 + (hbar^2/8) I(rho) = (hbar^2/2) ||grad psi||^2 with
 #     psi = sqrt(rho) e^{iS/hbar}, for hbar = 0.7, 1, 1.6 (kinetic Wasserstein term plus Fisher term is the kinetic energy of psi);
 # ST1 bosons and fermions from the same two orbitals: both densities are S_2-symmetric, and the full and marginal Fisher-Rao metrics
 #     are S_2-invariant on both; the group and the metric do not distinguish the statistics;
@@ -46,14 +46,14 @@ def gauss2(S):
     r = np.exp(-0.5 * (Si[0, 0] * X1**2 + 2 * Si[0, 1] * X1 * X2 + Si[1, 1] * X2**2))
     return r / (r.sum() * dx * dx)
 
-# ---------- DL1 ----------
+# ---------- DX1 ----------
 rc = gauss2(np.array([[1.0, 0.7], [0.7, 1.0]])); rp = gauss2(np.eye(2))
 n_c = marg(rc, 0) + marg(rc, 1); n_p = marg(rp, 0) + marg(rp, 1)
-ok(f"DL1 same one-body density (max diff {np.abs(n_c - n_p).max():.1e}) and medium Fisher term ({Ifis1(n_c):.6f} vs {Ifis1(n_p):.6f}), "
+ok(f"DX1 same one-body density (max diff {np.abs(n_c - n_p).max():.1e}) and medium Fisher term ({Ifis1(n_c):.6f} vs {Ifis1(n_p):.6f}), "
    f"but configuration-space Fisher information {Ifis2(rc):.4f} (correlated) vs {Ifis2(rp):.4f} (product): the medium in space is the "
    f"marginal level", np.abs(n_c - n_p).max() < 1e-10 and abs(Ifis1(n_c) / Ifis1(n_p) - 1) < 1e-9 and Ifis2(rc) - Ifis2(rp) > 1.0)
 
-# ---------- DL2 ----------
+# ---------- DX2 ----------
 def norm(p):
     return p / np.sqrt((np.abs(p)**2).sum() * dx * dx)
 rho0 = gauss2(np.array([[1.3, 0.4], [0.4, 0.8]])); S0 = 0.5 * X1 - 0.3 * X2 + 0.1 * X1 * X2
@@ -79,11 +79,11 @@ def evolve(psi, c, T=1.0, steps=800):
 dist = lambda a, b: np.sqrt((np.abs(a - b)**2).sum() * dx * dx)
 pA, pB = norm(psiA), norm(psiA + 1e-3 * norm(np.exp(-((X1 - 1)**2 + X2**2)) * np.exp(0.4j * X2)))
 d0 = dist(pA, pB); dl = dist(evolve(pA, 0.0), evolve(pB, 0.0)); dn = dist(evolve(pA, 0.3), evolve(pB, 0.3))
-ok(f"DL2 ||delta psi||^2 = {dpsi2:.6f}, (1/4) FR + int rho dS^2 = {sasaki:.6f}; distance of two nearby states {d0:.6e} -> linear "
+ok(f"DX2 ||delta psi||^2 = {dpsi2:.6f}, (1/4) FR + int rho dS^2 = {sasaki:.6f}; distance of two nearby states {d0:.6e} -> linear "
    f"{dl:.6e}, with marginal terms {dn:.6e}: unitarity is the isometry of the Sasaki-Fisher-Rao metric, lost when c != 0",
    abs(dpsi2 / sasaki - 1) < 1e-3 and abs(dl / d0 - 1) < 1e-10 and abs(dn / d0 - 1) > 1e-3)
 
-# ---------- DL3 ----------
+# ---------- DX3 ----------
 res = []
 for hb in (0.7, 1.0, 1.6):
     psi = np.sqrt(rho0) * np.exp(1j * S0 / hb)
@@ -91,7 +91,7 @@ for hb in (0.7, 1.0, 1.6):
     lhs = 0.5 * (rho0 * (gS1**2 + gS2**2)).sum() * dx * dx + hb**2 / 8 * Ifis2(rho0)
     rhs = hb**2 / 2 * ((np.abs(dd(psi, 0))**2 + np.abs(dd(psi, 1))**2)).sum() * dx * dx
     res.append((hb, lhs, rhs))
-ok("DL3 Wasserstein kinetic term + (hbar^2/8) Fisher information = (hbar^2/2)||grad psi||^2: " + ", ".join(
+ok("DX3 Wasserstein kinetic term + (hbar^2/8) Fisher information = (hbar^2/2)||grad psi||^2: " + ", ".join(
    f"hbar={h}: {a:.6f} = {b:.6f}" for h, a, b in res) + "; hbar is the coefficient between the two geometries",
    all(abs(a / b - 1) < 1e-6 for h, a, b in res))
 
