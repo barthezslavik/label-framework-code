@@ -13,8 +13,8 @@
 #     proportional to alpha^2 (alpha + N beta) and vanishes on that line and on alpha = 0, the vector-like baryon number of the right
 #     action, which violates only SU(2)^2 U(1);
 # IN4 for A_F = C + H + M_N(C), N = 1..7, S gives Y(Q) = 1/N and every anomaly still vanishes: S does not fix the colour number;
-# IN5 the global SU(2) anomaly (Witten 1982) needs an even number of Weyl doublets per generation; the representation has 1 + N, so
-#     N must be odd; S does not enter.
+# IN5 the global SU(2) anomaly (Witten 1982) needs an even total number of Weyl doublets; the representation has 1 + N per generation,
+#     so with an odd number of generations (three) N must be odd; with two generations every N is allowed; S does not enter.
 # Step 3 (three layers of the internal numbers):
 # IN6 if the gauge kinetic terms are fixed by a trace over H_F (premise of the spectral action), the traces of T3^2, T_a^2 (colour)
 #     and (Y/2)^2 over one generation are 2, 2, 10/3: g3 = g2 and g1 with the normalisation 5/3, a relation, not a value;
@@ -159,15 +159,17 @@ for N in range(1, 8):
 ok("IN4 for N = 1..7 S gives Y(Q) = 1/N and all anomalies vanish: " + "; ".join(f"N={n} Y(Q)={Fraction(q).limit_denominator(20)}"
    for n, q, _ in rows) + "; S leaves N to the choice of algebra", good)
 
-# ---------- IN5 Witten SU(2) anomaly: number of Weyl doublets per generation even => N odd ----------
+# ---------- IN5 Witten SU(2) anomaly: the total number of Weyl doublets must be even ----------
 cnt = {N: 1 + N for N in range(1, 8)}
 for N in range(1, 8):
     st, *_ = build(N)
     nd = sum(1 for f, c in st if f in ('nuL', 'uL'))
     assert nd == cnt[N]
-odd_ok = [N for N in range(1, 8) if cnt[N] % 2 == 0]
-ok(f"IN5 Weyl doublets per generation 1 + N; SU(2) global anomaly free only for N in {odd_ok} (odd N); S plays no part",
-   odd_ok == [1, 3, 5, 7])
+ok3 = [N for N in range(1, 8) if (3 * cnt[N]) % 2 == 0]                 # three generations
+ok2 = [N for N in range(1, 8) if (2 * cnt[N]) % 2 == 0]                 # two generations, for contrast
+ok(f"IN5 Weyl doublets per generation 1 + N; the global SU(2) anomaly needs an even total; with three generations it is absent only for "
+   f"N in {ok3} (odd N), with two generations for every N {ok2}: odd N follows for an odd number of generations; S plays no part",
+   ok3 == [1, 3, 5, 7] and ok2 == list(range(1, 8)))
 
 # ---------- IN6 trace normalisation of the gauge kinetic terms ----------
 states, Y, A, B, T2, TN, gam, y = hyper(3)

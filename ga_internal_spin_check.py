@@ -6,7 +6,8 @@
 #     isospin I of that weight (lock J = I). Enumerating Gelfand-Tsetlin patterns for p + q <= 12: for N_c odd every allowed spin is
 #     half-integer, for N_c even every allowed spin is integer; for N_c = 3 the lowest states are the octet (J = 1/2) and the decuplet
 #     (J = 3/2);
-# SP2 chain: the global SU(2) anomaly of the internal representation (1 + N_c Weyl doublets per generation, IN5) is absent iff N_c is
+# SP2 chain: with three generations the global SU(2) anomaly of the internal representation (1 + N_c Weyl doublets per generation,
+#     IN5) is absent iff N_c is
 #     odd iff every soliton spin of SP1 is half-integer, for N_c = 1..7: the Finkelstein-Rubinstein sign of R8 equals (-1)^{N_c} and is
 #     fixed by the consistency of the internal sector, given the Wess-Zumino level N_c;
 # SP3 the same group pi_4(SU(2)) = Z_2 carries both the global anomaly and the Finkelstein-Rubinstein sign; for labels in S^3 = SU(2)
@@ -59,8 +60,9 @@ ok(f"SP1 N_c odd -> all soliton spins half-integer, N_c even -> all integer (N_c
    and low.get((1, 1)) == [Fraction(1, 2)] and low.get((3, 0)) == [Fraction(3, 2)])
 
 # ---------- SP2 chain with the global SU(2) anomaly ----------
-chain = all(((1 + N) % 2 == 0) == res[N][0] for N in range(1, 8))
-ok("SP2 for N_c = 1..7: no global SU(2) anomaly (1 + N_c doublets even) <=> N_c odd <=> every soliton spin half-integer; "
+chain = all(((3 * (1 + N)) % 2 == 0) == res[N][0] for N in range(1, 8))     # three generations, 1 + N_c doublets each
+ok("SP2 for N_c = 1..7 and three generations: no global SU(2) anomaly (3(1 + N_c) doublets even) <=> N_c odd <=> every soliton spin "
+   "half-integer; "
    "the FR sign of R8 is (-1)^{N_c}, fixed by the internal sector given the WZ level N_c", chain)
 
 # ---------- SP3 WZ 5-form: zero on SU(2), non-zero on SU(3) ----------
