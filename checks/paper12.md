@@ -1,7 +1,7 @@
 # paper12: checks
 
 Scripts that compute the statements of *Quantum Mechanics in the Label Framework: One Body, Many Bodies, Statistics, Spin and Internal
-Quantum Numbers* (in preparation); all print `PASS`.
+Quantum Numbers* (doi:10.5281/zenodo.24047587); all print `PASS`.
 
 - `ga_qm_labels_check` (QM1–QM8): relabelling invariance of the Fisher term; Bohm potential from its variation; Schrödinger equation
   from continuity and Bernoulli; linearity only at alpha = -1 with affine internal energy; Kelvin circulation; Wallstrom's Bessel

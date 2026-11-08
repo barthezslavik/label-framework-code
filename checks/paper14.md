@@ -1,7 +1,7 @@
 # paper14: checks
 
 Scripts that compute the statements of *Continuum Mechanics in the Label Framework: Fluids, Liquid Crystals, Solids and Superfluids by
-the Symmetry of Their Labels* (in preparation); all print `PASS`.
+the Symmetry of Their Labels* (doi:10.5281/zenodo.24060747); all print `PASS`.
 
 - `ga_cont_media_check` (CM1–CM8): groups of label maps (SDiff, smectic, columnar, ISO(3), cubic), their invariants and reflections;
   stress; sound modes by direction; zero-frequency modes as local relabellings; smectic second sound; fluid and superfluid sound;

@@ -9,7 +9,7 @@ number of labels and a condition on the action, treats the cosmological constant
 describes galaxy rotation curves, the vacuum as q-theory and black holes built from label dust, and collects the results as theorems in
 geometric algebra. This repository holds the Python scripts (numpy, scipy, sympy) that compute or check those results.
 
-The scripts in this repository compute or check the statements of eleven texts, all open access on Zenodo:
+The scripts in this repository compute or check the statements of twelve texts, all open access on Zenodo:
 
 - [Volume-preserving relabelling and a label-count classification of cosmic media](https://doi.org/10.5281/zenodo.24021766) (paper1, version 4): which medium (dust, radiation, strings, walls, vacuum) each condition on the action gives
 - [Rotation curves as the shape of a label space](https://doi.org/10.5281/zenodo.23871775) (paper3, version 3): galaxy rotation curves and the baryonic Tully–Fisher slope
@@ -21,10 +21,11 @@ The scripts in this repository compute or check the statements of eleven texts, 
 - [Black holes in the label framework](https://doi.org/10.5281/zenodo.24023151) (paper11, version 2): collapse of label dust, shell crossing, entropy step, remnants
 - [Quantum mechanics in the label framework: one body, many bodies, statistics, spin and internal quantum numbers](https://doi.org/10.5281/zenodo.24047587) (paper12): what labels derive and postulate in quantum mechanics; many bodies from densities on configuration space; internal quantum numbers
 - [Statistical mechanics in the label framework: entropy as a label count, the second law as initial data](https://doi.org/10.5281/zenodo.24055978) (paper13): entropy as a count of labels; the second law not derived; gradient flows and the Fisher term; equilibrium
-- [The language of labels in physics: an overview of a series](https://doi.org/10.5281/zenodo.24055979) (overview, version 4): reading order, premises of the main results, the classes of numbers
+- [Continuum mechanics in the label framework: fluids, liquid crystals, solids and superfluids by the symmetry of their labels](https://doi.org/10.5281/zenodo.24060747) (paper14): the groups of label maps of fluids, liquid crystals, solids and superfluids; stress, sound modes and the number of moduli; circulation in units h/m
+- [The language of labels in physics: an overview of a series](https://doi.org/10.5281/zenodo.24060748) (overview, version 5): reading order, premises of the main results, the classes of numbers
 
 The papers state results and proofs without naming scripts. The map from statements to scripts and the labels of their checks
-is in `checks/`: `theorem-base.md` (every theorem of the theorem base), `paper8.md`, `paper10.md`, `paper11.md`, `paper12.md`, `paper13.md`, `paper14.md` (in preparation) and `overview.md`. Every check prints a labelled
+is in `checks/`: `theorem-base.md` (every theorem of the theorem base), `paper8.md`, `paper10.md`, `paper11.md`, `paper12.md`, `paper13.md`, `paper14.md` and `overview.md`. Every check prints a labelled
 `PASS`/`FAIL` line (for example `ga_rindler_eta_check` RE3). The repository holds only the scripts the texts rest on, the scripts they call,
 their stored outputs and one small table of our own; the papers themselves are on Zenodo (DOIs below).
 
@@ -90,16 +91,19 @@ python -I figures/fig_paper3_btfr.py SPARC_DIR OUT.pdf
 | A dimensionless theorem base in geometric algebra (theorem base, version 2) | [10.5281/zenodo.24023762](https://doi.org/10.5281/zenodo.24023762) |
 | The vacuum in the label framework (paper10, version 2) | [10.5281/zenodo.24023150](https://doi.org/10.5281/zenodo.24023150) |
 | Black holes in the label framework (paper11, version 2) | [10.5281/zenodo.24023151](https://doi.org/10.5281/zenodo.24023151) |
-| The language of labels in physics: an overview of a series (overview, version 2) | [10.5281/zenodo.24021765](https://doi.org/10.5281/zenodo.24021765) |
+| Quantum mechanics in the label framework (paper12) | [10.5281/zenodo.24047587](https://doi.org/10.5281/zenodo.24047587) |
+| Statistical mechanics in the label framework (paper13) | [10.5281/zenodo.24055978](https://doi.org/10.5281/zenodo.24055978) |
+| Continuum mechanics in the label framework (paper14) | [10.5281/zenodo.24060747](https://doi.org/10.5281/zenodo.24060747) |
+| The language of labels in physics: an overview of a series (overview, version 5) | [10.5281/zenodo.24060748](https://doi.org/10.5281/zenodo.24060748) |
 
-This code: [10.5281/zenodo.24021768](https://doi.org/10.5281/zenodo.24021768) (release v1.1); all versions: [10.5281/zenodo.23871789](https://doi.org/10.5281/zenodo.23871789); v1.0: [10.5281/zenodo.23871790](https://doi.org/10.5281/zenodo.23871790).
+This code: [10.5281/zenodo.24060749](https://doi.org/10.5281/zenodo.24060749) (release v1.5); all versions: [10.5281/zenodo.23871789](https://doi.org/10.5281/zenodo.23871789); v1.0: [10.5281/zenodo.23871790](https://doi.org/10.5281/zenodo.23871790).
 
 ## Citing
 
 Cite the paper whose result you use (DOIs above) and, for the checks, this code:
 
 ```
-V. Loginov, Code and checks for the label-framework series, version 1.1, Zenodo (2026), doi:10.5281/zenodo.24021768.
+V. Loginov, Code and checks for the label-framework series, version 1.5, Zenodo (2026), doi:10.5281/zenodo.24060749.
 ```
 
 ## Licence
