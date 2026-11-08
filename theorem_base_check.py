@@ -139,6 +139,12 @@ BASE = {
     'P12 no signalling selects linear many-body QM': {'ga_dens_signal_check.py': ['DS1', 'DS2', 'DS3', 'DS4']},
     'P12 link of the configuration-space picture with the series': {'ga_dens_series_check.py': ['DX1', 'DX2', 'DX3']},
     'P12 statistics is a phase condition': {'ga_dens_series_check.py': ['ST1', 'ST2', 'ST3', 'ST4']},
+    # P13. companion checks of paper13, statistical mechanics in the label framework (docs 152-154); not counted among the theorems
+    'P13 entropy as a label count': {'ga_stat_entropy_check.py': ['SE1', 'SE2', 'SE3', 'SE4']},
+    'P13 the second law needs coarse-graining, mixing and low-entropy initial data': {'ga_stat_second_law_check.py': ['SL1', 'SL2', 'SL3', 'SL4']},
+    'P13 gradient flows and the Fisher term': {'ga_stat_gradient_flow_check.py': ['GF1', 'GF2', 'GF3', 'GF4']},
+    'P13 equilibrium forms and labels': {'ga_stat_equilibrium_check.py': ['EQ1', 'EQ2', 'EQ3', 'EQ4', 'EQ5']},
+    'P13 horizons and the Born rule': {'ga_stat_horizon_born_check.py': ['HB1', 'HB2', 'HB3']},
     # G. falsification pass (counterexamples and necessity of hypotheses)
     'G falsification':            {'ga_theorem_falsify_check.py': ['XA1', 'XA2', 'XA3', 'XA4', 'XA5', 'XA6', 'XA7', 'XB1', 'XB2', 'XB3', 'XB4',
                                     'XB5', 'XB6', 'XC1', 'XC2', 'XC3', 'XC4', 'XD1', 'XD2', 'XD3', 'XE1', 'XE2', 'XE3', 'XE4', 'XF1', 'XF3'],
@@ -168,7 +174,8 @@ for thm, refs in BASE.items():
 n_lab = sum(len(l) for r in BASE.values() for l in r.values())
 for m in missing:
     print("   missing:", m)
-n_thm = sum(1 for k in BASE if not k.startswith(("G falsification", "P12 ")))
+n_thm = sum(1 for k in BASE if not k.startswith(("G falsification", "P12 ", "P13 ")))
 n_cmp = sum(1 for k in BASE if k.startswith("P12 "))
-print(("PASS " if not missing else "FAIL ") + f"theorem base: {n_thm} theorems + falsification pass + {n_cmp} companion checks (paper12), {n_lab} labelled checks in {len(passed)} scripts, all PASS: {not missing}")
+n_c13 = sum(1 for k in BASE if k.startswith("P13 "))
+print(("PASS " if not missing else "FAIL ") + f"theorem base: {n_thm} theorems + falsification pass + {n_cmp} companion checks (paper12) + {n_c13} (paper13), {n_lab} labelled checks in {len(passed)} scripts, all PASS: {not missing}")
 assert not missing
