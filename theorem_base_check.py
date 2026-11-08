@@ -145,6 +145,12 @@ BASE = {
     'P13 gradient flows and the Fisher term': {'ga_stat_gradient_flow_check.py': ['GF1', 'GF2', 'GF3', 'GF4']},
     'P13 equilibrium forms and labels': {'ga_stat_equilibrium_check.py': ['EQ1', 'EQ2', 'EQ3', 'EQ4', 'EQ5']},
     'P13 horizons and the Born rule': {'ga_stat_horizon_born_check.py': ['HB1', 'HB2', 'HB3']},
+    # P14. companion checks of paper14, continuum mechanics in the label framework (docs 155-156); not counted among the theorems
+    'P14 media sorted by the group of label maps; stress and sound modes': {'ga_cont_media_check.py': ['CM1', 'CM2', 'CM3', 'CM5', 'CM6', 'CM8']},
+    'P14 zero-frequency modes are local relabellings; gauge only where symmetric': {'ga_cont_media_check.py': ['CM4', 'CM7']},
+    'P14 elastic moduli: counts from symmetry, values as labels': {'ga_cont_elastic_check.py': ['EL1', 'EL2', 'EL3', 'EL4', 'EL5']},
+    'P14 superfluid circulation quantised by the circle premise': {'ga_cont_superfluid_check.py': ['SF1', 'SF2', 'SF3', 'SF4']},
+    'P14 forms and counts fixed, values labels; link with paper1': {'ga_cont_series_check.py': ['CX1', 'CX2', 'CX3']},
     # G. falsification pass (counterexamples and necessity of hypotheses)
     'G falsification':            {'ga_theorem_falsify_check.py': ['XA1', 'XA2', 'XA3', 'XA4', 'XA5', 'XA6', 'XA7', 'XB1', 'XB2', 'XB3', 'XB4',
                                     'XB5', 'XB6', 'XC1', 'XC2', 'XC3', 'XC4', 'XD1', 'XD2', 'XD3', 'XE1', 'XE2', 'XE3', 'XE4', 'XF1', 'XF3'],
@@ -174,8 +180,9 @@ for thm, refs in BASE.items():
 n_lab = sum(len(l) for r in BASE.values() for l in r.values())
 for m in missing:
     print("   missing:", m)
-n_thm = sum(1 for k in BASE if not k.startswith(("G falsification", "P12 ", "P13 ")))
+n_thm = sum(1 for k in BASE if not k.startswith(("G falsification", "P12 ", "P13 ", "P14 ")))
 n_cmp = sum(1 for k in BASE if k.startswith("P12 "))
 n_c13 = sum(1 for k in BASE if k.startswith("P13 "))
-print(("PASS " if not missing else "FAIL ") + f"theorem base: {n_thm} theorems + falsification pass + {n_cmp} companion checks (paper12) + {n_c13} (paper13), {n_lab} labelled checks in {len(passed)} scripts, all PASS: {not missing}")
+n_c14 = sum(1 for k in BASE if k.startswith("P14 "))
+print(("PASS " if not missing else "FAIL ") + f"theorem base: {n_thm} theorems + falsification pass + {n_cmp} companion checks (paper12) + {n_c13} (paper13) + {n_c14} (paper14), {n_lab} labelled checks in {len(passed)} scripts, all PASS: {not missing}")
 assert not missing

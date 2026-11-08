@@ -24,7 +24,7 @@ The scripts in this repository compute or check the statements of eleven texts, 
 - [The language of labels in physics: an overview of a series](https://doi.org/10.5281/zenodo.24055979) (overview, version 4): reading order, premises of the main results, the classes of numbers
 
 The papers state results and proofs without naming scripts. The map from statements to scripts and the labels of their checks
-is in `checks/`: `theorem-base.md` (every theorem of the theorem base), `paper8.md`, `paper10.md`, `paper11.md`, `paper12.md`, `paper13.md` and `overview.md`. Every check prints a labelled
+is in `checks/`: `theorem-base.md` (every theorem of the theorem base), `paper8.md`, `paper10.md`, `paper11.md`, `paper12.md`, `paper13.md`, `paper14.md` (in preparation) and `overview.md`. Every check prints a labelled
 `PASS`/`FAIL` line (for example `ga_rindler_eta_check` RE3). The repository holds only the scripts the texts rest on, the scripts they call,
 their stored outputs and one small table of our own; the papers themselves are on Zenodo (DOIs below).
 
@@ -48,7 +48,7 @@ Python 3.11 or later with `numpy`, `scipy`, `sympy` and `matplotlib`.
 
 ```
 python run_all.py              # every data-free check; prints a TOTAL line with 0 FAIL
-python theorem_base_check.py   # the theorem base: 100 theorems and the checks of paper12 and paper13, 554 labelled checks
+python theorem_base_check.py   # the theorem base: 100 theorems and the checks of paper12, paper13 and paper14, 574 labelled checks
 ```
 
 `ga_rindler_eta_check.py` takes about nine minutes; with the other checks in parallel a full run takes about ten minutes, and a cached rerun seconds.
