@@ -9,7 +9,7 @@ number of labels and a condition on the action, treats the cosmological constant
 describes galaxy rotation curves, the vacuum as q-theory and black holes built from label dust, and collects the results as theorems in
 geometric algebra. This repository holds the Python scripts (numpy, scipy, sympy) that compute or check those results.
 
-The scripts in this repository compute or check the statements of ten texts, all open access on Zenodo:
+The scripts in this repository compute or check the statements of eleven texts, all open access on Zenodo:
 
 - [Volume-preserving relabelling and a label-count classification of cosmic media](https://doi.org/10.5281/zenodo.24021766) (paper1, version 4): which medium (dust, radiation, strings, walls, vacuum) each condition on the action gives
 - [Rotation curves as the shape of a label space](https://doi.org/10.5281/zenodo.23871775) (paper3, version 3): galaxy rotation curves and the baryonic Tully–Fisher slope
@@ -20,10 +20,11 @@ The scripts in this repository compute or check the statements of ten texts, all
 - [The vacuum in the label framework](https://doi.org/10.5281/zenodo.24023150) (paper10, version 2): the four-label vacuum as q-theory; its rigidity
 - [Black holes in the label framework](https://doi.org/10.5281/zenodo.24023151) (paper11, version 2): collapse of label dust, shell crossing, entropy step, remnants
 - [Quantum mechanics in the label framework: one body, many bodies, statistics, spin and internal quantum numbers](https://doi.org/10.5281/zenodo.24047587) (paper12): what labels derive and postulate in quantum mechanics; many bodies from densities on configuration space; internal quantum numbers
-- [The language of labels in physics: an overview of a series](https://doi.org/10.5281/zenodo.24047592) (overview, version 3): reading order, premises of the main results, the classes of numbers
+- [Statistical mechanics in the label framework: entropy as a label count, the second law as initial data](https://doi.org/10.5281/zenodo.24055978) (paper13): entropy as a count of labels; the second law not derived; gradient flows and the Fisher term; equilibrium
+- [The language of labels in physics: an overview of a series](https://doi.org/10.5281/zenodo.24055979) (overview, version 4): reading order, premises of the main results, the classes of numbers
 
 The papers state results and proofs without naming scripts. The map from statements to scripts and the labels of their checks
-is in `checks/`: `theorem-base.md` (every theorem of the theorem base), `paper8.md`, `paper10.md`, `paper11.md`, `paper12.md` and `overview.md`. Every check prints a labelled
+is in `checks/`: `theorem-base.md` (every theorem of the theorem base), `paper8.md`, `paper10.md`, `paper11.md`, `paper12.md`, `paper13.md` and `overview.md`. Every check prints a labelled
 `PASS`/`FAIL` line (for example `ga_rindler_eta_check` RE3). The repository holds only the scripts the texts rest on, the scripts they call,
 their stored outputs and one small table of our own; the papers themselves are on Zenodo (DOIs below).
 
@@ -47,7 +48,7 @@ Python 3.11 or later with `numpy`, `scipy`, `sympy` and `matplotlib`.
 
 ```
 python run_all.py              # every data-free check; prints a TOTAL line with 0 FAIL
-python theorem_base_check.py   # the theorem base: 100 theorems and the checks of paper12, 533 labelled checks
+python theorem_base_check.py   # the theorem base: 100 theorems and the checks of paper12 and paper13, 554 labelled checks
 ```
 
 `ga_rindler_eta_check.py` takes about nine minutes; with the other checks in parallel a full run takes about ten minutes, and a cached rerun seconds.

@@ -1,7 +1,7 @@
 # paper13: checks
 
 Scripts that compute the statements of *Statistical Mechanics in the Label Framework: Entropy as a Label Count, the Second Law as
-Initial Data* (in preparation); all print `PASS`.
+Initial Data* (doi:10.5281/zenodo.24055978); all print `PASS`.
 
 - `ga_stat_entropy_check` (SE1–SE4): volume-preserving relabellings keep every int f(rho); general relabellings keep only the label
   count; relative entropy to the label volume; Boltzmann count of label arrangements
