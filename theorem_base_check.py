@@ -141,7 +141,7 @@ BASE = {
     'P12 statistics is a phase condition': {'ga_dens_series_check.py': ['ST1', 'ST2', 'ST3', 'ST4']},
     # P13. companion checks of paper13, statistical mechanics in the label framework (docs 152-154); not counted among the theorems
     'P13 entropy as a label count': {'ga_stat_entropy_check.py': ['SE1', 'SE2', 'SE3', 'SE4']},
-    'P13 the second law needs coarse-graining, mixing and low-entropy initial data': {'ga_stat_second_law_check.py': ['SL1', 'SL2', 'SL3', 'SL4']},
+    'P13 the second law needs coarse-graining, mixing and low-entropy initial data': {'ga_stat_second_law_check.py': ['SL1', 'SL2', 'SL3', 'SL4', 'SL5']},
     'P13 gradient flows and the Fisher term': {'ga_stat_gradient_flow_check.py': ['GF1', 'GF2', 'GF3', 'GF4']},
     'P13 equilibrium forms and labels': {'ga_stat_equilibrium_check.py': ['EQ1', 'EQ2', 'EQ3', 'EQ4', 'EQ5']},
     'P13 horizons and the Born rule': {'ga_stat_horizon_born_check.py': ['HB1', 'HB2', 'HB3']},
