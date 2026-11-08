@@ -1,10 +1,11 @@
-# 152/154: paper13, step 2. Entropy as a count of labels. Densities on the torus T^2; a relabelling acts by pushforward.
-# SE1 under volume-preserving maps (compositions of shears, unit Jacobian) every functional int f(rho) is invariant: f = rho ln rho,
+# 152/154: paper13, step 2. Entropy as a count of labels. Densities on the torus T^2; a flow map acts by pushforward (relabellings are
+# gauge and leave the physical density unchanged, paper1).
+# SE1 under volume-preserving flow maps (compositions of shears, unit Jacobian) every functional int f(rho) is invariant: f = rho ln rho,
 #     rho^2, rho^3 (the Casimirs of SDiff); the fine-grained entropy is one of them;
-# SE2 under a map that changes volume only the label count int rho is invariant; int rho ln rho, rho^2, rho^3 change: the general
-#     relabelling group Diff keeps no entropy functional;
+# SE2 under a flow map that changes volume only the label count int rho is invariant; int rho ln rho, rho^2, rho^3 change: general flows
+#     keep no entropy functional among the int f(rho);
 # SE3 int rho ln(rho/mu) is invariant under every diffeomorphism when the reference density mu is pushed forward too: the entropy of
-#     the series is the relative entropy to the label volume, which SDiff keeps fixed;
+#     the series is the relative entropy to the label volume;
 # SE4 Boltzmann count: N labels placed in K cells of volumes v_k with occupation fractions p_k; (1/N) ln W -> -sum p ln(p/v) (Stirling)
 #     as N grows (N = 1e2 .. 1e6): the relative entropy to the label volume is the logarithm of the number of label arrangements.
 # Run: ~/.venvs/jev/bin/python ga_stat_entropy_check.py
@@ -47,9 +48,9 @@ F = {'mass': lambda q: q, 'rho ln rho': lambda q: q * np.log(q), 'rho^2': lambda
 I = lambda q, f: (f(q)).sum() * dA
 dev_s = {k: abs(I(rs, f) / I(r, f) - 1) for k, f in F.items()}
 dev_d = {k: abs(I(rd, f) / I(r, f) - 1) for k, f in F.items()}
-ok("SE1 volume-preserving map: relative change of " + ", ".join(f"{k} {v:.1e}" for k, v in dev_s.items())
-   + "; every int f(rho) is invariant (Casimirs of SDiff)", max(dev_s.values()) < 1e-9)
-ok("SE2 volume-changing map: " + ", ".join(f"{k} {v:.1e}" for k, v in dev_d.items())
+ok("SE1 volume-preserving flow map: relative change of " + ", ".join(f"{k} {v:.1e}" for k, v in dev_s.items())
+   + "; every int f(rho) is invariant (Casimirs of volume-preserving flows)", max(dev_s.values()) < 1e-9)
+ok("SE2 volume-changing flow map: " + ", ".join(f"{k} {v:.1e}" for k, v in dev_d.items())
    + "; only the label count is invariant", dev_d['mass'] < 1e-9 and min(v for k, v in dev_d.items() if k != 'mass') > 1e-3)
 
 mu_d = push_diff(mu0)

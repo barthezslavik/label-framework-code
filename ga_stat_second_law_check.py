@@ -1,5 +1,6 @@
-# 154: paper13, step 3. The second law for labels. A volume-preserving relabelling on the lattice torus Z_L^2: Arnold's cat map
-# (x, y) -> (2x + y, x + y) mod L, a permutation of the L^2 sites (SDiff on the lattice), and a non-mixing one, a translation.
+# 154: paper13, step 3. The second law for labels. A volume-preserving flow on the lattice torus Z_L^2: the lattice cat map
+# (x, y) -> (2x + y, x + y) mod L, a periodic permutation of the L^2 sites whose continuum map is mixing, and a non-mixing one, a
+# translation. The flow models volume-preserving dynamics; relabellings are gauge and do not act on the state (paper1).
 # Fine-grained entropy: the occupation of sites; coarse-grained entropy: occupation of B x B blocks.
 # SL1 the fine-grained entropy is exactly constant (a permutation), while from a low-entropy start (labels in one block) the coarse-
 #     grained entropy rises to within 1% of its maximum ln(number of blocks);
@@ -9,7 +10,7 @@
 #     low-entropy initial state, initial data of the solution;
 # SL4 under a non-mixing volume-preserving map (a translation) the coarse-grained entropy of the low-entropy start does not grow
 #     beyond its initial value: growth needs mixing, a property of the particular flow, not of the symmetry.
-# Status (paper13): fine-grained conservation follows from the relabelling symmetry; coarse-grained growth needs coarse-graining
+# Status (paper13): fine-grained conservation follows from volume-preserving dynamics; coarse-grained growth needs coarse-graining
 # (premise), a mixing flow (property of the dynamics) and low-entropy initial data (a label of the solution).
 # Run: ~/.venvs/jev/bin/python ga_stat_second_law_check.py
 import numpy as np
