@@ -118,6 +118,27 @@ BASE = {
     'L6b label count at the quantum level': {'ga_label_count_quantum_check.py': ['QL1', 'QL2', 'QL3', 'QL4', 'QL5', 'QL8']},
     'L7 no thermal history of the label number': {'ga_thermal_nuclear_check.py': ['TN1', 'TN1b', 'TN3', 'TN4']},
     'L8 compact integers in condensed matter': {'ga_solid_state_compact_check.py': ['SS1', 'SS2']},
+    # P12. companion checks of paper12, quantum mechanics in the label framework (doc 145); not counted among the theorems of the base text
+    'P12 Schrodinger field of a label medium': {'ga_qm_labels_check.py': ['QM1', 'QM2', 'QM3', 'QM7']},
+    'P12 linearity is the pressureless point': {'ga_qm_labels_check.py': ['QM4'], 'ga_qm_modifications_check.py': ['QD5']},
+    'P12 vorticity and the circle are postulated': {'ga_qm_labels_check.py': ['QM5', 'QM6']},
+    'P12 labels in space carry no entanglement': {'ga_qm_labels_check.py': ['QM8'], 'ga_qm_modifications_check.py': ['QD4']},
+    'P12 verdicts on testable modifications': {'ga_qm_modifications_check.py': ['QD1', 'QD2', 'QD3']},
+    'P12 half-integer spin under the sign premise': {'ga_qm_modifications_check.py': ['HH1']},
+    'P12 statuses of the twelve interpretations': {'ga_qm_interpretations_check.py': ['QI1', 'QI2', 'QI3', 'QI4', 'QI5', 'QI6']},
+    # P12 (continued). many bodies, statistics and internal quantum numbers of paper12 (docs 146-150); not counted among the theorems
+    'P12 unimodularity gives the gauge algebra and hypercharges': {'ga_internal_check.py': ['IN1', 'IN2', 'IN3']},
+    'P12 colour number: free under unimodularity, odd by the global anomaly': {'ga_internal_check.py': ['IN4', 'IN5']},
+    'P12 coupling relation under the spectral action': {'ga_internal_check.py': ['IN6', 'IN7']},
+    'P12 unimodularity is not volume preservation': {'ga_internal_dictionary_check.py': ['ID1', 'ID2', 'ID3']},
+    'P12 Lambda and theta conjugate to exact top forms': {'ga_internal_dictionary_check.py': ['ID4']},
+    'P12 half-integer spin from an odd colour number': {'ga_internal_spin_check.py': ['SP1', 'SP2', 'SP3']},
+    'P12 internal label budget': {'ga_internal_budget_check.py': ['IB1', 'IB2', 'IB3']},
+    'P12 Fisher-Rao is not unique under Diff(M)^N x S_N': {'ga_dens_metric_check.py': ['DM1', 'DM2', 'DM3', 'DM4', 'DM5']},
+    'P12 marginal terms: Bohm potential of marginals, non-linear, hbar for products': {'ga_dens_dynamics_check.py': ['DD1', 'DD2', 'DD3', 'DD4', 'DD5']},
+    'P12 no signalling selects linear many-body QM': {'ga_dens_signal_check.py': ['DS1', 'DS2', 'DS3', 'DS4']},
+    'P12 link of the configuration-space picture with the series': {'ga_dens_series_check.py': ['DX1', 'DX2', 'DX3']},
+    'P12 statistics is a phase condition': {'ga_dens_series_check.py': ['ST1', 'ST2', 'ST3', 'ST4']},
     # G. falsification pass (counterexamples and necessity of hypotheses)
     'G falsification':            {'ga_theorem_falsify_check.py': ['XA1', 'XA2', 'XA3', 'XA4', 'XA5', 'XA6', 'XA7', 'XB1', 'XB2', 'XB3', 'XB4',
                                     'XB5', 'XB6', 'XC1', 'XC2', 'XC3', 'XC4', 'XD1', 'XD2', 'XD3', 'XE1', 'XE2', 'XE3', 'XE4', 'XF1', 'XF3'],
@@ -130,12 +151,14 @@ BASE = {
                                    'ga_scaling_duality_check.py': ['DU7'], 'ga_angmom_radius_check.py': ['AM3']},
 }
 
+sys.path.insert(0, HERE)
+import checkcache                                                        # same content-keyed cache as run_all.py
+res = checkcache.results(sorted({s for t in BASE.values() for s in t}), full='--full' in sys.argv)
 passed = {}
-for script in sorted({s for t in BASE.values() for s in t}):
-    out = subprocess.run([sys.executable, os.path.join(HERE, script)], cwd=HERE, capture_output=True, text=True, timeout=3600)  # ga_rindler_eta_check takes ~9 min alone, longer under load
-    passed[script] = set(re.findall(r"^PASS (\S+)", out.stdout, re.M))
-    if out.returncode != 0:
-        print(f"   {script}: exit {out.returncode}")
+for script, r in res.items():
+    passed[script] = set(re.findall(r"^PASS (\S+)", r['stdout'], re.M))
+    if r['rc'] != 0:
+        print(f"   {script}: exit {r['rc']}")
 missing = []
 for thm, refs in BASE.items():
     for script, labels in refs.items():
@@ -145,6 +168,7 @@ for thm, refs in BASE.items():
 n_lab = sum(len(l) for r in BASE.values() for l in r.values())
 for m in missing:
     print("   missing:", m)
-n_thm = sum(1 for k in BASE if not k.startswith("G falsification"))
-print(("PASS " if not missing else "FAIL ") + f"theorem base: {n_thm} theorems + falsification pass, {n_lab} labelled checks in {len(passed)} scripts, all PASS: {not missing}")
+n_thm = sum(1 for k in BASE if not k.startswith(("G falsification", "P12 ")))
+n_cmp = sum(1 for k in BASE if k.startswith("P12 "))
+print(("PASS " if not missing else "FAIL ") + f"theorem base: {n_thm} theorems + falsification pass + {n_cmp} companion checks (paper12), {n_lab} labelled checks in {len(passed)} scripts, all PASS: {not missing}")
 assert not missing

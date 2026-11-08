@@ -1,21 +1,21 @@
-# Run every check script in one process (one uv env, one sympy import) and print per-script timing.
-# Run: uv run --with sympy --with numpy --with scipy python run_all.py
-import contextlib, glob, io, os, runpy, sys, time
-
+# Run every check script, in parallel, with a content-keyed cache (checkcache.py): a script reruns only when it or what it reads changed.
+# Run: ~/.venvs/jev/bin/python run_all.py          (cached)
+#      ~/.venvs/jev/bin/python run_all.py --full   (recompute everything, e.g. before publishing)
+import glob, os, sys, time
 os.chdir(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, '.')
+import checkcache
+
 scripts = sorted(glob.glob('ga_*_check.py') + glob.glob('inv_*_check.py') + glob.glob('pub_*_check.py') + ['paper2_cs_check.py'])
-tot_p = tot_f = 0
+t0 = time.time()
+res = checkcache.results(scripts, full='--full' in sys.argv)
+tot_p = tot_f = n_run = 0
 for s in scripts:
-    out, t0 = io.StringIO(), time.time()
-    err = ''
-    with contextlib.redirect_stdout(out):
-        try:
-            runpy.run_path(s, run_name='__main__')
-        except BaseException as e:            # ok() asserts; keep going with the next script
-            err = f'{type(e).__name__}: {e}'
-    txt = out.getvalue()
-    p, f = txt.count('PASS '), txt.count('FAIL ') + bool(err)
-    tot_p, tot_f = tot_p + p, tot_f + f
-    print(f'{s:32s} {p:4d} pass {f:2d} fail {time.time() - t0:6.1f}s {err[:80]}', flush=True)
-print(f'TOTAL {len(scripts)} scripts, PASS {tot_p}, FAIL {tot_f}')
+    r = res[s]
+    p = r['stdout'].count('PASS ')
+    f = r['stdout'].count('FAIL ') + (r['rc'] != 0)
+    tot_p, tot_f, n_run = tot_p + p, tot_f + f, n_run + (not r['cached'])
+    note = 'cached' if r['cached'] else 'ran'
+    err = (r['err'].strip().splitlines() or [''])[-1][:80] if r['rc'] else ''
+    print(f'{s:36s} {p:4d} pass {f:2d} fail  {note:6s} {err}')
+print(f'TOTAL {len(scripts)} scripts ({n_run} ran, {len(scripts) - n_run} cached), PASS {tot_p}, FAIL {tot_f}, {time.time() - t0:.0f}s')
