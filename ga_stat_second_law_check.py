@@ -107,6 +107,6 @@ Imin = moment(zm)
 up_f = all(moment(f1.sol(t)) > Imin for t in tt); up_b = all(moment(f2.sol(t)) > Imin for t in tt)
 ok(f"SL5 three bodies with gravity, E = {E:.3f} > 0: I has its minimum {Imin:.4f} at t = {tmin:.3f} and grows in both time directions "
    f"from it (forward: {up_f}, backward: {up_b}); the velocity-reversed evolution retraces the original backwards to {diff:.1e}: the "
-   f"Lagrange-Jacobi minimum picks no direction of time", E > 0 and up_f and up_b and diff < 1e-6)
+   f"Lagrange-Jacobi minimum picks no direction of time", E > 0 and up_f and up_b and diff < 1e-9)
 
 print("ALL PASS")
